@@ -1,0 +1,25 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?> 
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure 1.2//EN" "http://jetty.mortbay.org/configure_1_2.dtd">
+
+<Configure id="testObject" class="org.yuqieshi.frame.jetty.ioc.TestObject">
+	<Call name="doStringAdd" />
+
+	<Call name="doStringAdd">
+		<Arg>a-value</Arg>
+		<Arg>b-value</Arg>
+	</Call>
+
+	<Call id="hashmap" name="static_method" class="org.yuqieshi.frame.jetty.ioc.TestObject">
+		<Put name="k1">111111111</Put>
+	</Call>
+
+	<Set name="port">1</Set>
+
+	<Get id="p" name="port"></Get>
+
+	<Call name="printString" class="org.yuqieshi.frame.jetty.ioc.TestObject">
+		<Arg>
+			<Ref id="hashmap"></Ref>
+		</Arg>
+	</Call>
+</Configure>
